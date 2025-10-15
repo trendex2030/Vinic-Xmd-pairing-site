@@ -1,4 +1,3 @@
-
 const PastebinAPI = require('pastebin-js'),
 pastebin = new PastebinAPI('EMWTMkQAVfJa9kM-MRUrxd5Oku1U7pgL')
 const {makeid} = require('./id');
@@ -21,7 +20,7 @@ function removeFile(FilePath){
 router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
-        async function Vinic-Xmd_MD_PAIR_CODE() {
+        async function Vinic_Xmd_Pair_Code() {
         const {
             state,
             saveCreds
@@ -57,7 +56,7 @@ router.get('/', async (req, res) => {
                let b64data = Buffer.from(data).toString('base64');
                let session = await Pair_Code_By_Kevin_Terri.sendMessage(Pair_Code_By_Kevin_Terri.user.id, { text: 'Vinic-Xmd~' + b64data });
 
-               let Vinic-Xmd_MD_TEXT = `
+               let Vinic_Xmd_TEXT = `
 *Vinic-Xmd awesome bot*
 *you have used pairing method*
 > YOU HAVE SUCCESSFULLY COMPLETED YOUR FIRST STEP
@@ -84,7 +83,7 @@ ____________________________________
 ___________________________
 
 '_Don't Forget To Give Star To My Repo_`
- await Pair_Code_By_Kevin_Terri.sendMessage(Pair_Code_By_Kevin_Terri.user.id,{text:Vinic-Xmd_MD_TEXT},{quoted:session})
+ await Pair_Code_By_Kevin_Terri.sendMessage(Pair_Code_By_Kevin_Terri.user.id,{text:Vinic_Xmd_TEXT},{quoted:session})
  
 
         await delay(100);
@@ -92,7 +91,7 @@ ___________________________
         return await removeFile('./temp/'+id);
             } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
-                    Kevin_Terri_MD_PAIR_CODE();
+                    Vinic_Xmd_Pair_Code();
                 }
             });
         } catch (err) {
@@ -103,6 +102,6 @@ ___________________________
          }
         }
     }
-    return await Vinic-Xmd_MD_PAIR_CODE()
+    return await Vinic_Xmd_Pair_Code()
 });
 module.exports = router
