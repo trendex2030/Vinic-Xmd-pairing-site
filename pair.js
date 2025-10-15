@@ -1,3 +1,4 @@
+
 const PastebinAPI = require('pastebin-js'),
 pastebin = new PastebinAPI('EMWTMkQAVfJa9kM-MRUrxd5Oku1U7pgL')
 const {makeid} = require('./id');
@@ -6,12 +7,12 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-    default: Maher_Zubair,
+    default: Kevin_Terri,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
     Browsers
-} = require("maher-zubair-baileys");
+} = require("@whiskeysockets/baileys");
 
 function removeFile(FilePath){
     if(!fs.existsSync(FilePath)) return false;
@@ -20,13 +21,13 @@ function removeFile(FilePath){
 router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
-        async function SIGMA_MD_PAIR_CODE() {
+        async function Vinic-Xmd_MD_PAIR_CODE() {
         const {
             state,
             saveCreds
         } = await useMultiFileAuthState('./temp/'+id)
      try {
-            let Pair_Code_By_Maher_Zubair = Maher_Zubair({
+            let Pair_Code_By_Kevin_Terri = Kevin_Terri({
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({level: "fatal"}).child({level: "fatal"})),
@@ -35,16 +36,16 @@ router.get('/', async (req, res) => {
                 logger: pino({level: "fatal"}).child({level: "fatal"}),
                 browser: ["Chrome (Linux)", "silva", "Mac OS"]
              });
-             if(!Pair_Code_By_Maher_Zubair.authState.creds.registered) {
+             if(!Pair_Code_By_Kevin_Terri.authState.creds.registered) {
                 await delay(1500);
                         num = num.replace(/[^0-9]/g,'');
-                            const code = await Pair_Code_By_Maher_Zubair.requestPairingCode(num)
+                            const code = await Pair_Code_By_Kevin_Terri.requestPairingCode(num)
                  if(!res.headersSent){
                  await res.send({code});
                      }
                  }
-            Pair_Code_By_Maher_Zubair.ev.on('creds.update', saveCreds)
-            Pair_Code_By_Maher_Zubair.ev.on("connection.update", async (s) => {
+            Pair_Code_By_Kevin_Terri.ev.on('creds.update', saveCreds)
+            Pair_Code_By_Kevin_Terri.ev.on("connection.update", async (s) => {
                 const {
                     connection,
                     lastDisconnect
@@ -54,9 +55,9 @@ router.get('/', async (req, res) => {
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                 await delay(800);
                let b64data = Buffer.from(data).toString('base64');
-               let session = await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: 'Vinic-Xmd~' + b64data });
+               let session = await Pair_Code_By_Kevin_Terri.sendMessage(Pair_Code_By_Kevin_Terri.user.id, { text: 'Vinic-Xmd~' + b64data });
 
-               let SIGMA_MD_TEXT = `
+               let Vinic-Xmd_MD_TEXT = `
 *Vinic-Xmd awesome bot*
 *you have used pairing method*
 > YOU HAVE SUCCESSFULLY COMPLETED YOUR FIRST STEP
@@ -80,18 +81,18 @@ ____________________________________
 ║ 
 ╚════════════════════╝ 
  *Kevin Tech*
-___________________________________
+___________________________
 
 '_Don't Forget To Give Star To My Repo_`
- await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id,{text:SIGMA_MD_TEXT},{quoted:session})
+ await Pair_Code_By_Kevin_Terri.sendMessage(Pair_Code_By_Kevin_Terri.user.id,{text:Vinic-Xmd_MD_TEXT},{quoted:session})
  
 
         await delay(100);
-        await Pair_Code_By_Maher_Zubair.ws.close();
+        await Pair_Code_By_Kevin_Terri.ws.close();
         return await removeFile('./temp/'+id);
             } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
-                    SIGMA_MD_PAIR_CODE();
+                    Kevin_Terri_MD_PAIR_CODE();
                 }
             });
         } catch (err) {
@@ -102,6 +103,6 @@ ___________________________________
          }
         }
     }
-    return await SIGMA_MD_PAIR_CODE()
+    return await Vinic-Xmd_MD_PAIR_CODE()
 });
 module.exports = router
