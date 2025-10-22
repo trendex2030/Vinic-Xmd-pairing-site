@@ -13,7 +13,8 @@ function removeFile(FilePath) {
 router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
-    async function PEAKY_BLINDER_MD_PAIR_CODE() {
+    async function VINIC-XMD_MD_PAIR_CODE();
+     {
         const {
             state,
             saveCreds
@@ -77,7 +78,7 @@ var randomItem = selectRandomItem(items);
                         const string_session = mega_url.replace('https://mega.nz/file/', '');
                         let md = "Vinic-Xmd~" + string_session;
                         let code = await sock.sendMessage(sock.user.id, { text: md });
-                        let desc = `*Hey there, PEAKY-BLINDER-MD User!* 👋🏻
+                        let desc = `*Hey there, Vinic-Xmd User!* 👋🏻
 
 Thanks for using *Vinic-Xmd* — your session has been successfully created!
 
@@ -158,7 +159,8 @@ showAdAttribution: true
                     process.exit();
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10);
-                    PEAKY_BLINDER_MD_PAIR_CODE();
+                    VINIC-XMD_MD_PAIR_CODE();
+                    
                 }
             });
         } catch (err) {
@@ -169,7 +171,7 @@ showAdAttribution: true
             }
         }
     }
-   return await PEAKY_BLINDER_MD_PAIR_CODE();
+   return await VINIC-XMD_MD_PAIR_CODE();
 });/*
 setInterval(() => {
     console.log("☘️ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...");
