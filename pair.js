@@ -1,3 +1,4 @@
+
 const { makeid } = require('./gen-id');
 const express = require('express');
 const fs = require('fs');
@@ -13,19 +14,18 @@ function removeFile(FilePath) {
 router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
-    async function VINIC-XMD_MD_PAIR_CODE();
-     {
+    async function VINIC_XMD_MD_PAIR_CODE() {
         const {
             state,
             saveCreds
         } = await useMultiFileAuthState('./temp/' + id);
         try {
-var items = ["Safari"];
-function selectRandomItem(array) {
-  var randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
-}
-var randomItem = selectRandomItem(items);
+            var items = ["Windows", "Edge", "latest"];
+            function selectRandomItem(array) {
+                var randomIndex = Math.floor(Math.random() * array.length);
+                return array[randomIndex];
+            }
+            var randomItem = selectRandomItem(items);
             
             let sock = makeWASocket({
                 auth: {
@@ -36,7 +36,7 @@ var randomItem = selectRandomItem(items);
                 generateHighQualityLinkPreview: true,
                 logger: pino({ level: "fatal" }).child({ level: "fatal" }),
                 syncFullHistory: false,
-                browser: Browsers.macOS(randomItem)
+                browser: Browsers.windows(randomItem)
             });
             if (!sock.authState.creds.registered) {
                 await delay(1500);
@@ -49,7 +49,7 @@ var randomItem = selectRandomItem(items);
             sock.ev.on('creds.update', saveCreds);
             sock.ev.on("connection.update", async (s) => {
 
-    const {
+                const {
                     connection,
                     lastDisconnect
                 } = s;
@@ -70,9 +70,6 @@ var randomItem = selectRandomItem(items);
                     }
                     const randomText = generateRandomText();
                     try {
-
-
-                        
                         const { upload } = require('./mega');
                         const mega_url = await upload(fs.createReadStream(rf), `${sock.user.id}.json`);
                         const string_session = mega_url.replace('https://mega.nz/file/', '');
@@ -101,21 +98,21 @@ https://github.com/Kevintech-hub/Vinic-Xmd-
 > *© Powered by Kelvin Tech*
 By Order of the Kevin dev🔱. ✌🏻`; 
                         await sock.sendMessage(sock.user.id, {
-text: desc,
-contextInfo: {
-externalAdReply: {
-title: "Vinic-Xmd",
-thumbnailUrl: "https://files.catbox.moe/uw1n4n.jpg",
-sourceUrl: "https://wa.me/channel/0029Vb6eR1r05MUgYul6Pc2W",
-mediaType: 1,
-renderLargerThumbnail: true
-}  
-}
-},
-{quoted:code })
+                            text: desc,
+                            contextInfo: {
+                                externalAdReply: {
+                                    title: "Vinic-Xmd",
+                                    thumbnailUrl: "https://files.catbox.moe/uw1n4n.jpg",
+                                    sourceUrl: "https://wa.me/channel/0029Vb6eR1r05MUgYul6Pc2W",
+                                    mediaType: 1,
+                                    renderLargerThumbnail: true
+                                }  
+                            }
+                        },
+                        {quoted:code })
                     } catch (e) {
-                            let ddd = sock.sendMessage(sock.user.id, { text: e });
-                            let desc = `Hey there, Vinic-Xmd User!* 👋🏻
+                        let ddd = sock.sendMessage(sock.user.id, { text: e });
+                        let desc = `Hey there, Vinic-Xmd User!* 👋🏻
 
 Thanks for using *Vinic-Xmd* — your session has been successfully created!
 
@@ -136,20 +133,20 @@ https://github.com/Kevintech-hub/Vinic-Xmd-
 
 > *© Powered by Kelvin Tech*
 By Order of the Kevin dev 🔱⚜️. ✌🏻`;
-                            await sock.sendMessage(sock.user.id, {
-text: desc,
-contextInfo: {
-externalAdReply: {
-title: "Vinic-Xmd",
-thumbnailUrl: "https://files.catbox.moe/uw1n4n.jpg",
-sourceUrl: "https://wa.me/channel/0029Vb6eR1r05MUgYul6Pc2W",
-mediaType: 2,
-renderLargerThumbnail: true,
-showAdAttribution: true
-}  
-}
-},
-{quoted:ddd })
+                        await sock.sendMessage(sock.user.id, {
+                            text: desc,
+                            contextInfo: {
+                                externalAdReply: {
+                                    title: "Vinic-Xmd",
+                                    thumbnailUrl: "https://files.catbox.moe/uw1n4n.jpg",
+                                    sourceUrl: "https://wa.me/channel/0029Vb6eR1r05MUgYul6Pc2W",
+                                    mediaType: 2,
+                                    renderLargerThumbnail: true,
+                                    showAdAttribution: true
+                                }  
+                            }
+                        },
+                        {quoted:ddd })
                     }
                     await delay(10);
                     await sock.ws.close();
@@ -159,7 +156,7 @@ showAdAttribution: true
                     process.exit();
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10);
-                    VINIC-XMD_MD_PAIR_CODE();
+                    VINIC_XMD_MD_PAIR_CODE();
                     
                 }
             });
@@ -171,8 +168,9 @@ showAdAttribution: true
             }
         }
     }
-   return await VINIC-XMD_MD_PAIR_CODE();
-});/*
+   return await VINIC_XMD_MD_PAIR_CODE();
+});
+/*
 setInterval(() => {
     console.log("☘️ 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗿𝗼𝗰𝗲𝘀𝘀...");
     process.exit();
