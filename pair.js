@@ -30,28 +30,31 @@ router.get('/', async (req, res) => {
     let num = req.query.number;
 
     async function immuPair() {
-        const { state, saveCreds } = await useMultiFileAuthState(`./session`);
-        try {
-            let botz = makeWASocket({
-                auth: {
-                    creds: state.creds,
-                    keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
-                },
-                printQRInTerminal: false,
-                logger: pino({ level: "fatal" }).child({ level: "fatal" }),
-                browser: Browsers.windows("MicrosoftEdge"),
+    const { state, saveCreds } = await useMultiFileAuthState('./session');
+    
+    try {
+        let botz = makeWASocket({
+            auth: {
+                creds: state.creds,
+                keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" }))
+            },
+            printQRInTerminal: false,
+            logger: pino({ level: "fatal" }).child({ level: "fatal" }),
+            browser: Browsers.windows("MicrosoftEdge")
+        });  // ← Close the makeWASocket function here
 
-            if (!botz.authState.creds.registered) {
-                await delay(1500);
-                num = num.replace(/[^0-9]/g, '');
-                const code = await botz.requestPairingCode(num);
-                if (!res.headersSent) {
-                    await res.send({ code });
-                }
+        // Then put your if statement AFTER socket creation
+        if (!botz.authState.creds.registered) {
+            await delay(1500);
+            num = num.replace(/[^0-9]/g, "");
+            const code = await botz.requestPairingCode(num);
+            if (!res.headersSent) {
+                await res.send({ code });
             }
+        }
 
-            botz.ev.on('creds.update', saveCreds);
-
+        botz.ev.on('creds.update', saveCreds);
+  
             botz.ev.on("connection.update", async (s) => {
                 const { connection, lastDisconnect } = s;
                 if (connection === "open") {
