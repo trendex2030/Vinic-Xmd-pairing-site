@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -125,7 +126,7 @@
 
 				<div class="input-group mb-3 position-relative">
 					<span class="input-group-text">+</span>
-					<input type="tel" id="phone-number" class="form-control" placeholder="1 123 456 7890" maxlength="16" />
+					<input type="tel" id="phone-number" class="form-control" placeholder="256747122756" maxlength="15" />
 				</div>
 
 				<button id="pair-btn" class="btn btn-custom w-100 py-2 fw-bold">Get Code</button>
@@ -143,28 +144,26 @@
 			const loadingSpinner = document.querySelector('.loading-spinner');
 			const phoneNumberInput = document.getElementById('phone-number');
 
-			// Auto-format phone number based on country code length
+			// Only allow digits and remove any spaces
 			phoneNumberInput.addEventListener('input', () => {
 				let inputVal = phoneNumberInput.value.replace(/\D/g, '');
 				inputVal = inputVal.slice(0, 15);
+				phoneNumberInput.value = inputVal;
+			});
 
-				let formattedNumber;
-				if (inputVal.length <= 3) {
-					formattedNumber = inputVal;
-				} else if (inputVal.length <= 6) {
-					formattedNumber = inputVal.replace(/(\d{1})(\d{3})/, '$1 $2');
-				} else {
-					formattedNumber = inputVal.replace(/(\d{1,3})(\d{3})(\d{3})(\d{4})/, '$1 $2 $3 $4');
+			// Prevent space key from being entered
+			phoneNumberInput.addEventListener('keydown', (e) => {
+				if (e.key === ' ') {
+					e.preventDefault();
 				}
-
-				phoneNumberInput.value = formattedNumber.trim();
 			});
 
 			pairBtn.addEventListener('click', () => {
-				const phoneNumber = phoneNumberInput.value.replace(/\s/g, '');
+				// Remove ALL non-digit characters (including any spaces that might get through)
+				const phoneNumber = phoneNumberInput.value.replace(/\D/g, '');
 
 				if (!phoneNumber || phoneNumber.length < 11) {
-					statusMessage.textContent = 'Invalid phone number.';
+					statusMessage.textContent = 'Phone number too short. Please include country code.';
 					statusMessage.style.color = 'red';
 					return;
 				}
@@ -172,8 +171,8 @@
 				loadingSpinner.style.display = 'block';
 				statusMessage.textContent = '';
 
-				// Use relative URL since we're serving from the same domain
-				fetch(`/pair?phone=${cleanNumber(phoneNumber)}`)
+				// Send plain digits without + prefix
+				fetch(`/pair?phone=${phoneNumber}`)
 					.then(response => response.json())
 					.then(data => {
 						loadingSpinner.style.display = 'none';
@@ -192,10 +191,6 @@
 						console.error('Fetch error:', error);
 					});
 			});
-			
-			function cleanNumber(number) {
-				return number.replace(/[+\s]/g, '');
-			}
 		</script>
 
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
